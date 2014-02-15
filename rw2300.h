@@ -26,7 +26,7 @@
 #include <sys/stat.h>
 
 #define MAXRETRIES          50
-#define MAXWINDRETRIES      20
+#define MAXWINDRETRIES      10
 #define WRITENIB            0x42
 #define SETBIT              0x12
 #define UNSETBIT            0x32
