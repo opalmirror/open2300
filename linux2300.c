@@ -368,7 +368,7 @@ int citizen_weather_send(struct config_type *config, char *aprsline)
 	}
 
 	// The login/header line
-	sprintf(buffer,"user %s pass %s1 vers open2300 %s\n",
+	sprintf(buffer,"user %s pass %s vers open2300 %s\n",
 	        config->citizen_weather_id, config->citizen_weather_passcode,
 		VERSION);
 	send(sockfd, buffer, strlen(buffer), 0);
