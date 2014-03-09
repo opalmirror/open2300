@@ -999,6 +999,9 @@ double wind_minmax(WEATHERSTATION ws2300,
                    struct timestamp *time_min,
                    struct timestamp *time_max)
 {
+#if BROKEN_WIND
+	return 0.0;
+#else
 	unsigned char data[20];
 	unsigned char command[25];	//room for write data also
 	int address=0x4EE;
@@ -1031,6 +1034,7 @@ double wind_minmax(WEATHERSTATION ws2300,
 	}
 	
 	return ((data[4]*256 + data[3])/360.0 * wind_speed_conv_factor);
+#endif // BROKEN_WIND
 }
 
 
