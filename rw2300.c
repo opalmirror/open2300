@@ -871,6 +871,10 @@ double wind_current(WEATHERSTATION ws2300,
                     double wind_speed_conv_factor,
                     double *winddir)
 {
+#if BROKEN_WIND
+    *winddir = 0.0;
+    return 0.0;
+#else
 	unsigned char data[20];
 	unsigned char command[25];	//room for write data also
 	int i;
@@ -900,6 +904,7 @@ double wind_current(WEATHERSTATION ws2300,
 
 	//Calculate raw wind speed 	- convert from m/s to whatever
 	return( (((data[2]&0xF)<<8)+(data[1])) / 10.0 * wind_speed_conv_factor );
+#endif // BROKEN_WIND
 }
 
 

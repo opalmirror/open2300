@@ -16,6 +16,7 @@ prefix = /usr/local
 exec_prefix = ${prefix}
 bindir = ${exec_prefix}/bin
 libdir = ${prefix}/lib
+BROKEN_WIND=1
 
 #########################################
 
@@ -36,7 +37,7 @@ LIBOBJ = rw2300.o linux2300.o
 
 VERSION = 1.11
 
-MYCPPFLAGS = -DVERSION=\"$(VERSION)\"
+MYCPPFLAGS = -DVERSION=\"$(VERSION)\" -DBROKEN_WIND=$(BROKEN_WIND)
 CFLAGS = -Wall -O3
 CC_LDFLAGS = -L. -lm -l2300
 INSTALL = install
